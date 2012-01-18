@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>navi_sprite_sheet.png</file>
+    </qresource>
+</RCC>
