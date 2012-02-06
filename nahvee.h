@@ -29,6 +29,7 @@ IN THE SOFTWARE.
 #include <QVBoxLayout>
 #include <QGraphicsItem>
 #include <QTimer>
+#include <QSound>
 #include <math.h>
 
 
@@ -47,11 +48,13 @@ private:
     void runAnimation();
     QTimer *frameTimer;
     QTimer *moveTimer;
+    QTimer *heyListenTimer;
     QList<QPixmap> nahveeLeft;
     QList<QPixmap> nahveeRight;
     QList<QPixmap> currentDirection;
     QGraphicsScene* scene;
     QGraphicsItem* lastItem;
+    QSound* heyListen;
     int currentItem;
     void calcDirection();
     bool reachedDestination();
@@ -67,6 +70,7 @@ private:
 private slots:
     void nextFrame();
     void move();
+    void heyListenPlay();
 
 protected:
    // void paintEvent(QPaintEvent *event);

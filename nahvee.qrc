@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>navi_sprite_sheet.png</file>
+        <file>Navi-hey_listen.wav</file>
     </qresource>
 </RCC>

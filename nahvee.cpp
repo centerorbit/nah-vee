@@ -53,7 +53,16 @@ Nahvee::Nahvee(QWidget *parent) :
     this->setAttribute(Qt::WA_TranslucentBackground);
     this->setStyleSheet("background:transparent; border: transparent;");
 
+    //TODO: this, and the timer hookup should be done in one function, easier to handle and manage.
+    if(QSound.isAvailable())
+        heyListen = new QSound("Navi-hey_listen.wav");
+
     runAnimation();
+}
+
+void Nahvee::heyListenPlay(){
+    if(heyListen->isFinished())
+        heyListen->play();
 }
 
 void Nahvee::nextFrame(){
@@ -137,6 +146,12 @@ void Nahvee::runAnimation(){
     moveTimer =  new QTimer(this);
     connect(moveTimer, SIGNAL(timeout()), this, SLOT(move()));
     moveTimer->start(20);
+
+    if(QSound.isAvailable()){
+        heyListenTimer =  new QTimer(this);
+        connect(heyListenTimer, SIGNAL(timeout()), this, SLOT(heyListenPlay()));
+        heyListenTimer->start(10000);
+     }
 }
 
 void Nahvee::createSprites(){
